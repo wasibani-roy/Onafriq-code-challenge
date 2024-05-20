@@ -80,6 +80,8 @@ def open_link():
     close_modal_button = driver.find_element(By.CSS_SELECTOR,"button.close-modal")
     close_modal_button.click()
 
+    time.sleep(3)
+
     # Add Summer White Top to the cart
     summer_white_top_add_to_cart = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//p[text()='Summer White Top']/following-sibling::a[contains(@class, 'add-to-cart')]"))
@@ -93,14 +95,21 @@ def open_link():
     close_modal_button = driver.find_element(By.CSS_SELECTOR,"button.close-modal")
     close_modal_button.click()
 
+    time.sleep(2)
+
     move_to_cart = WebDriverWait(driver,10).until(
         EC.element_to_be_clickable((By.LINK_TEXT,"Cart"))
     )
     move_to_cart.click()
+
+    time.sleep(3)
+
     check_out = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.CLASS_NAME, "check_out"))
     )
     check_out.click()
+
+    time.sleep(3)
 
     # Add comments
     comments_textarea = WebDriverWait(driver, 10).until(
@@ -110,7 +119,7 @@ def open_link():
 
     # Place order
     driver.find_element(By.LINK_TEXT,"Place Order").click()
-    time.sleep(4)
+    time.sleep(3)
 
     # Enter card details
     card_name_input = WebDriverWait(driver, 10).until(
